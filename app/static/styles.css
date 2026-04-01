@@ -1,0 +1,146 @@
+:root {
+  --bg: #0a0f1f;
+  --panel: rgba(14, 21, 43, 0.85);
+  --line: rgba(255, 255, 255, 0.1);
+  --text-main: #f5f7ff;
+  --text-sub: #b6bfd8;
+  --accent: #7aa2ff;
+  --accent-soft: #8af4ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: radial-gradient(circle at 5% 10%, #1d2a58 0%, var(--bg) 45%);
+  color: var(--text-main);
+}
+
+.background-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 85% 15%, rgba(102, 153, 255, 0.25), transparent 40%),
+    radial-gradient(circle at 70% 75%, rgba(92, 246, 255, 0.22), transparent 35%);
+}
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.left-panel,
+.right-panel {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+}
+
+.left-panel {
+  padding: 28px 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.subtitle {
+  margin: 10px 0 22px;
+  color: var(--text-sub);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: transparent;
+  color: var(--text-main);
+  text-align: left;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.menu-item.active,
+.menu-item:hover {
+  border-color: rgba(122, 162, 255, 0.8);
+  background: rgba(122, 162, 255, 0.16);
+}
+
+.menu-title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.menu-description {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-sub);
+  font-size: 0.86rem;
+}
+
+.right-panel {
+  padding: 34px;
+}
+
+.guide-card h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.guide-intro {
+  color: var(--text-sub);
+  margin-bottom: 20px;
+}
+
+.steps {
+  margin: 0;
+  padding-left: 22px;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.tip-box {
+  margin-top: 24px;
+  border: 1px solid rgba(138, 244, 255, 0.4);
+  background: rgba(138, 244, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.tip-box h3 {
+  margin: 0 0 6px;
+  color: var(--accent-soft);
+}
+
+.tip-box p {
+  margin: 0;
+  color: #e8fbff;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .right-panel {
+    padding: 24px;
+  }
+}

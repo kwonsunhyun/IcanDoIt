@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IcanDoIt | 아이폰 쉬운 사용법</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}" />
+  </head>
+  <body>
+    <div class="background-glow"></div>
+    <main class="layout">
+      <aside class="left-panel">
+        <h1>아이폰 쉬운 사용법</h1>
+        <p class="subtitle">보고 따라하면 되는 초간단 가이드</p>
+
+        <nav class="menu" aria-label="기능 선택">
+          {% for item in menu_items %}
+          <button
+            class="menu-item active"
+            type="button"
+            data-target="{{ item.id }}"
+          >
+            <span class="menu-title">{{ item.title }}</span>
+            <span class="menu-description">{{ item.description }}</span>
+          </button>
+          {% endfor %}
+        </nav>
+      </aside>
+
+      <section class="right-panel">
+        <article id="sms" class="guide-card active">
+          <h2>문자 메시지 보내기 (아이폰 기준)</h2>
+          <p class="guide-intro">
+            천천히 4단계만 따라하면 됩니다. 화면 이름 그대로 적었습니다.
+          </p>
+
+          <ol class="steps">
+            <li>
+              <strong>메시지</strong> 앱(초록색 말풍선 아이콘)을 눌러 엽니다.
+            </li>
+            <li>
+              오른쪽 위 <strong>새 메시지</strong> 버튼(연필 모양)을 누릅니다.
+            </li>
+            <li>
+              받는 사람 칸에 <strong>이름 또는 전화번호</strong>를 입력합니다.
+            </li>
+            <li>
+              아래 입력칸에 내용을 적고,
+              <strong>파란색/초록색 보내기 화살표</strong>를 누르면 전송됩니다.
+            </li>
+          </ol>
+
+          <div class="tip-box">
+            <h3>한 줄 팁</h3>
+            <p>
+              글씨가 너무 작으면 <strong>설정 → 디스플레이 및 밝기 → 텍스트 크기</strong>
+              에서 크게 바꿀 수 있습니다.
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
